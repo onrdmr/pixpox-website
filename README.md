@@ -1,3 +1,10 @@
+1. Yorumlar oyuna eklenecek 
+5. Offline modda, size 10,  lru cache ile video tutulacak yapı eklenecek. 
+4. Buy attığında pixedlere eklenecek.
+2. Kullanıcı adı ana ekrana girilecek.
+3. Kullanici current money eklenecek
+
+
 # React + Vite + PostgreSQL + Hyperdrive on Cloudflare Workers
 
 [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/cloudflare/templates/tree/main/react-postgres-fullstack-template)

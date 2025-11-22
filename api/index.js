@@ -1,51 +1,58 @@
 import { Hono } from "hono";
+import { cors } from 'hono/cors'; // istersen CORS middleware de ekleyebilirsin
 import postgres from "postgres";
 import booksRouter from "./routes/books";
+import videosRouter from "./routes/Videos";
+import videoProxy from './routes/videoProxy.js';
 import bookRelatedRouter from "./routes/book-related";
 import { mockBooks } from "./lib/mockData";
 
 const app = new Hono();
-
-// Setup SQL client middleware
+// Global CORS (isteğe bağlı)
+app.use('/*', cors());
+// Middleware: SQL bağlantısı veya mock veri
 app.use("*", async (c, next) => {
-	// Check if Hyperdrive binding is available
-	if (c.env.HYPERDRIVE) {
-		try {
-			// Create SQL client
-			const sql = postgres(c.env.HYPERDRIVE.connectionString, {
-				max: 5,
-				fetch_types: false,
-			});
+	try {
+		// PostgreSQL bağlantısı
+		const sql = postgres(
+			"postgresql://neondb_owner:npg_B0JZX9CnSdWi@ep-misty-rain-adtg12c9-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require",
+			{
+				max: 3,
+				ssl: "require",
+			}
+		);
 
-			c.env.SQL = sql;
-			c.env.DB_AVAILABLE = true;
+		c.env.SQL = sql;
+		c.env.DB_AVAILABLE = true;
 
-			// Process the request
-			await next();
+		await next();
 
-			// Close the SQL connection after the response is sent
+		// Miniflare ortamında `c.executionCtx` olmayabilir, o yüzden kontrol ekledik
+		if (c.executionCtx && typeof c.executionCtx.waitUntil === "function") {
 			c.executionCtx.waitUntil(sql.end());
-		} catch (error) {
-			console.error("Database connection error:", error);
-			c.env.DB_AVAILABLE = false;
-			c.env.MOCK_DATA = mockBooks;
-			await next();
+		} else {
+			await sql.end();
 		}
-	} else {
-		// No Hyperdrive binding available, use mock data
-		console.log("No database connection available. Using mock data.");
+	} catch (err) {
+		console.error("⚠️ Database connection error:", err);
 		c.env.DB_AVAILABLE = false;
 		c.env.MOCK_DATA = mockBooks;
 		await next();
 	}
 });
 
+// Rotalar
 app.route("/api/books", booksRouter);
+app.route("/api/videos", videosRouter);
 app.route("/api/books/:id/related", bookRelatedRouter);
+app.route('/api/video-proxy', videoProxy);
 
-// Catch-all route for static assets
+// Statik dosyalar (frontend)
 app.all("*", async (c) => {
-	return c.env.ASSETS.fetch(c.req.raw);
+	if (c.env.ASSETS) {
+		return c.env.ASSETS.fetch(c.req.raw);
+	}
+	return new Response("Not Found", { status: 404 });
 });
 
 export default {
