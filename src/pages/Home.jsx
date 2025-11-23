@@ -212,7 +212,7 @@ const Home = () => {
           </a>
 
           {/* PC */}
-          <a href="/download/windows-app.exe" className="platform-btn">
+          <a href="https://onrdmr.itch.io/pixpox" className="platform-btn">
             <FontAwesomeIcon icon={faWindows} className="platform-icon" size='5x'/>
             {/* <span>PC</span> */}
           </a>
