@@ -16,7 +16,7 @@ app.use("*", async (c, next) => {
 
 		// PostgreSQL bağlantısı
 		const sql = postgres(
-			"postgresql://neondb_owner:npg_B0JZX9CnSdWi@ep-misty-rain-adtg12c9-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require",
+			c.env.HYPERDRIVE.connectionString,
 			{
 				max: 3,
 				ssl: "require",

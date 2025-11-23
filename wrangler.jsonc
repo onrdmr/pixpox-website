@@ -33,13 +33,13 @@
 	},
 	"upload_source_maps": true,
 	  // Add this to your wrangler.jsonc
-	// "hyperdrive": [
-	// 	{
-	// 		"binding": "HYPERDRIVE",
-	// 		"id": "f9e6400e5bb24513a69ee87ba79e54be",
+	"hyperdrive": [
+		{
+			"binding": "HYPERDRIVE",
+			"id": "f9e6400e5bb24513a69ee87ba79e54be",
 			
-	// 	// Optional. Can be used to connect to a local database for local development with `wrangler dev`
-	// 		// "localConnectionString": 
-	// 	}
-	// ]
+		// Optional. Can be used to connect to a local database for local development with `wrangler dev`
+			// "localConnectionString": 
+		}
+	]
 }
