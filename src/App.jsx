@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router";
-import { groupByGenre } from "./lib/utils";
+
 import { LanguageProvider } from './context/LanguageContext';
 //import { BrowserRouter, Routes, Route } from 'react-router-dom';
 

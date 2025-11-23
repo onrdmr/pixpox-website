@@ -1,11 +1,11 @@
 import { Hono } from "hono";
 import { cors } from 'hono/cors'; // istersen CORS middleware de ekleyebilirsin
 import postgres from "postgres";
-import booksRouter from "./routes/books";
+// import booksRouter from "./routes/books";
 import videosRouter from "./routes/Videos";
 import videoProxy from './routes/videoProxy.js';
-import bookRelatedRouter from "./routes/book-related";
-import { mockBooks } from "./lib/mockData";
+// import bookRelatedRouter from "./routes/book-related";
+// import { mockBooks } from "./lib/mockData";
 
 const app = new Hono();
 // Global CORS (isteğe bağlı)
@@ -13,9 +13,10 @@ app.use('/*', cors());
 // Middleware: SQL bağlantısı veya mock veri
 app.use("*", async (c, next) => {
 	try {
+
 		// PostgreSQL bağlantısı
 		const sql = postgres(
-			"postgresql://neondb_owner:npg_B0JZX9CnSdWi@ep-misty-rain-adtg12c9-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require",
+			c.env.HYPERDRIVE.connectionString,
 			{
 				max: 3,
 				ssl: "require",
@@ -42,9 +43,9 @@ app.use("*", async (c, next) => {
 });
 
 // Rotalar
-app.route("/api/books", booksRouter);
+// app.route("/api/books", booksRouter);
 app.route("/api/videos", videosRouter);
-app.route("/api/books/:id/related", bookRelatedRouter);
+// app.route("/api/books/:id/related", bookRelatedRouter);
 app.route('/api/video-proxy', videoProxy);
 
 // Statik dosyalar (frontend)

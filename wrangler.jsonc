@@ -13,6 +13,7 @@
 		"enabled": true
 	},
 	"assets": {
+		"directory": "./public",
 		"binding": "ASSETS",
 		"not_found_handling": "single-page-application"
 	},
@@ -32,13 +33,13 @@
 	},
 	"upload_source_maps": true,
 	  // Add this to your wrangler.jsonc
-	// "hyperdrive": [
-	// 	{
-	// 		"binding": "HYPERDRIVE",
-	// 		"id": "f9e6400e5bb24513a69ee87ba79e54be",
+	"hyperdrive": [
+		{
+			"binding": "HYPERDRIVE",
+			"id": "f9e6400e5bb24513a69ee87ba79e54be",
 			
-	// 	// Optional. Can be used to connect to a local database for local development with `wrangler dev`
-	// 		// "localConnectionString": "postgresql://neondb_owner:npg_B0JZX9CnSdWi@ep-misty-rain-adtg12c9-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
-	// 	}
-	// ]
+		// Optional. Can be used to connect to a local database for local development with `wrangler dev`
+			// "localConnectionString": 
+		}
+	]
 }
