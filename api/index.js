@@ -2,7 +2,7 @@ import { Hono } from "hono";
 import { cors } from 'hono/cors'; // istersen CORS middleware de ekleyebilirsin
 import postgres from "postgres";
 // import booksRouter from "./routes/books";
-import videosRouter from "./routes/Videos.js";
+import videosRouter from "./routes/videos.js";
 import videoProxy from './routes/videoProxy.js';
 // import bookRelatedRouter from "./routes/book-related";
 // import { mockBooks } from "./lib/mockData";
