@@ -18,8 +18,8 @@ app.use("*", async (c, next) => {
 		const sql = postgres(
 			c.env.HYPERDRIVE.connectionString,
 			{
-				max: 3,
-				ssl: "require",
+				max: 3//,
+				//ssl: "require",
 			}
 		);
 
