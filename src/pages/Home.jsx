@@ -176,13 +176,7 @@ const Home = () => {
 
         {/* YouTube Embed */}
         <div className="video-wrapper">
-          <iframe
-            src="https://www.youtube.com/embed/vmCVOPTucMc"
-            title="Tanıtım Videosu"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-          />
+          <iframe width="1573" height="885" src="https://www.youtube.com/embed/2bRADOrC1zs" title="Pixpox (Pixelart Tiktok)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         </div>
       </dialog>
 

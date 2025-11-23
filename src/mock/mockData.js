@@ -120,7 +120,7 @@ export const mockVideos = [
     id: 2,
     title: 'berserk',
     thumbnail:
-      'https://images.unsplash.com/photo-1511882150382-421056c89033?w=800&h=450&fit=crop',
+      'https://video.pixpox.tech/Images/7263521659779370246.jpg',
     duration: '4:40',
     views: 12400,
     pix: 5400,
@@ -133,7 +133,7 @@ export const mockVideos = [
   },
   {
     id: 3,
-    title: 'Stealth Protocol – The Silent Player',
+    title: 'KATSEYE',
     thumbnail:
       'https://video.pixpox.tech/Images/7560319441796369675.jpg',
     duration: '5:55',
@@ -244,7 +244,7 @@ export const mockProjects = [
     description:
       'PixPox videolarını oynatmak ve etkileşimli mini oyunları çalıştırmak için özel olarak tasarlandı. Blockchain bağlantılı skor sistemiyle gelir paylaşımı sağlar.',
     image:
-      'https://images.unsplash.com/photo-1606813902775-0e6e71712c23?w=600&h=400&fit=crop',
+      'https://video.pixpox.tech/Thumbnail/pixpox-intro.png?w=800&h=600&fit=crop',
     tags: ['Hardware', 'NFT', 'Console']
   },
   {
@@ -253,7 +253,7 @@ export const mockProjects = [
     description:
       'Kullanıcıların videolarını alıp satabildiği merkeziyetsiz bir pazar yeri. Her işlem zincir üzerinde doğrulanır.',
     image:
-      'https://images.unsplash.com/photo-1612197595683-951c3e3c8d6a?w=600&h=400&fit=crop',
+      'https://video.pixpox.tech/Thumbnail/bodypark.png?w=800&h=600&fit=crop',
     tags: ['Blockchain', 'Market', 'Web3']
   }
 ];
