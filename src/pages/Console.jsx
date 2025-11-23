@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { Cpu, Gauge, Wifi, Gamepad2 } from 'lucide-react';
+import { Cpu, Gauge, Wifi, Gamepad2, Send } from 'lucide-react';
 
 const Console = () => {
   const { t } = useLanguage();
+  const [isFormOpen, setIsFormOpen] = useState(false);
 
   const specs = [
     { icon: <Cpu size={24} />, label: 'Processor', value: 'Custom ARM Cortex' },
@@ -22,6 +23,17 @@ const Console = () => {
             <div className="feature-tag">8-BIT INSPIRED</div>
             <div className="feature-tag">RETRO DESIGN</div>
             <div className="feature-tag">MODERN TECH</div>
+          </div>
+          {/* Form açma butonu */}
+          {/* Form açma butonu */}
+          <div className="flex justify-left mt-8"> {/* div’e margin-top verdim */}
+            <button
+              className="open-form-button flex flex-col items-center justify-center gap-2 px-6 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+              onClick={() => setIsFormOpen(true)}
+            >
+              <Send size={50} />  
+              <span className="text-lg font-medium">{t.hero.offerForm}</span>
+            </button>
           </div>
         </div>
         <div className="console-image">
@@ -56,6 +68,22 @@ const Console = () => {
           <img src="https://video.pixpox.tech/Thumbnail/twister-os.png?w=600&h=400&fit=crop" alt="Console angle 3" loading="lazy" />
         </div>
       </div>
+
+      {/* Form Dialog */}
+      {isFormOpen && (
+        <div className="form-dialog">
+          <div className="form-dialog-content">
+            <button className="close-form-button" onClick={() => setIsFormOpen(false)}>X</button>
+          
+            {/* Tripetto iframe */}
+            <iframe
+              src="https://tripetto.app/run/R3ERQG9T6J"
+              style={{ width: '100%', height: '600px', border: 'none' }}
+              title="Pixie Talep Formu"
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

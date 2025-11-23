@@ -12,7 +12,7 @@ const Videos = () => {
   const videosPerPage = 8;
 
   useEffect(() => {
-    fetch('http://localhost:5173/api/videos?sort=random')
+    fetch('https://pixpox-website.onur-demir2.workers.dev/api/videos?sort=random')
       .then(r => r.json())
       .then(data => {
         const formatted = data.videos.map(v => ({

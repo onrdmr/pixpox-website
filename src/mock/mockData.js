@@ -15,7 +15,8 @@ export const translations = {
       description:
         'PixPox, izlediğin videoları oyun haline getiren ve her videonun alınıp satılabildiği yenilikçi bir eğlence platformudur. Oynadıkça kazan, videoların değerini artır, koleksiyonunu büyüt!',
       downloadApp: 'Uygulamayı İndir',
-      watchVideo: 'Nasıl Çalışır?'
+      watchVideo: 'Nasıl Çalışır?',
+      offerForm: 'Talep Formu'
     },
     videoGallery: {
       title: 'EN POPÜLER VİDEOLAR',
@@ -63,7 +64,8 @@ export const translations = {
       description:
         'PixPox is a revolutionary entertainment platform where every video can be played like a game — and traded like an asset. Play to earn, boost its value, and expand your digital collection!',
       downloadApp: 'Download App',
-      watchVideo: 'See How It Works'
+      watchVideo: 'See How It Works',
+      offerForm: 'Request Form'
     },
     videoGallery: {
       title: 'TOP TRENDING VIDEOS',
