@@ -35,14 +35,14 @@ export const translations = {
       video: 'video'
     },
     console: {
-      title: 'PIXIE',
+      title: 'PIXIE ROBOT',
       description:
-        'Pixie deneyimini maksimuma çıkaran, oyunları ve videoları aynı anda çalıştırabilen özel bir hibrit oyun konsolu.'
+        'Projeksiyon, mini oyun konsolu ve bir yapay zeka asistanını bir araya getiren çok işlevli bir hibrit cihaz — PixPox deneyimini en üst seviyeye taşımak için tasarlandı.'
     },
     projects: {
       title: 'YAKINDA GELECEK PROJELER',
       subtitle:
-        'PixPox ekosistemini büyütmek için geliştirdiğimiz yeni oyunlar ve NFT video projeleri'
+        'PixPox ekosistemini büyütmek için geliştirdiğimiz projeler'
     },
     footer: {
       rights: '© 2025 PixPox. Tüm hakları saklıdır.',
@@ -84,14 +84,14 @@ export const translations = {
       video: 'videos'
     },
     console: {
-      title: 'PIXPOX CONSOLE',
+      title: 'PIXIE ROBOT',
       description:
-        'A hybrid console designed for the ultimate PixPox experience — stream, play, and earn simultaneously.'
+        'A multifunctional hybrid device combining projection, a mini-game console, and an AI assistant — built to deliver the ultimate PixPox experience.'
     },
     projects: {
       title: 'UPCOMING PROJECTS',
       subtitle:
-        'New NFT-integrated games and video assets expanding the PixPox universe'
+        'Projects we developed to grow the PixPox ecosystem'
     },
     footer: {
       rights: '© 2025 PixPox. All rights reserved.',
@@ -245,15 +245,15 @@ export const mockProjects = [
       'PixPox videolarını oynatmak ve etkileşimli mini oyunları çalıştırmak için özel olarak tasarlandı. Blockchain bağlantılı skor sistemiyle gelir paylaşımı sağlar.',
     image:
       'https://video.pixpox.tech/Thumbnail/pixpox-intro.png?w=800&h=600&fit=crop',
-    tags: ['Hardware', 'NFT', 'Console']
+    tags: ['Gaming', 'NFT', 'System']
   },
   {
     id: 2,
     title: 'Pixie',
     description:
-      'Kullanıcıların videolarını alıp satabildiği merkeziyetsiz bir pazar yeri. Her işlem zincir üzerinde doğrulanır.',
+      'Projeksiyon, mini oyun konsolu ve bir yapay zeka asistanını bir araya getiren çok işlevli bir hibrit cihaz — PixPox deneyimini en üst seviyeye taşımak için tasarlandı.',
     image:
       'https://video.pixpox.tech/Thumbnail/bodypark.png?w=800&h=600&fit=crop',
-    tags: ['Blockchain', 'Market', 'Web3']
+    tags: ['Robotic', 'AI', 'Asistant', 'Gaming']
   }
 ];
