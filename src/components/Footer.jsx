@@ -1,6 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../context/LanguageContext';
-import { Github, Twitter, Mail, Heart } from 'lucide-react';
+import { Github, Twitter, Mail, Heart, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   const { t } = useLanguage();
@@ -25,7 +25,10 @@ const Footer = () => {
             <a href="https://x.com/onrdmr__" className="social-link" aria-label="Twitter">
               <Twitter size={20} />
             </a>
-            <a href="mailto:onur.demir.cse@gmail.com" className="social-link" aria-label="Email">
+            <a href="https://www.linkedin.com/in/onur-demir-98b8a6172/" className="social-link" aria-label="LinkedIn">
+              <Linkedin size={20} />
+            </a>
+            <a href="mailto:onur.demir@pixpox.tech" className="social-link" aria-label="Email">
               <Mail size={20} />
             </a>
           </div>

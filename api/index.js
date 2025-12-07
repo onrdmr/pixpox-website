@@ -3,6 +3,7 @@ import { cors } from 'hono/cors'; // istersen CORS middleware de ekleyebilirsin
 import postgres from "postgres";
 // import booksRouter from "./routes/books";
 import videosRouter from "./routes/videos.js";
+import mangaRouter from "./routes/manga.js";
 import videoProxy from './routes/videoProxy.js';
 // import bookRelatedRouter from "./routes/book-related";
 // import { mockBooks } from "./lib/mockData";
@@ -47,6 +48,7 @@ app.use("*", async (c, next) => {
 app.route("/api/videos", videosRouter);
 // app.route("/api/books/:id/related", bookRelatedRouter);
 app.route('/api/video-proxy', videoProxy);
+app.route('/api/manga', mangaRouter);
 
 // Statik dosyalar (frontend)
 app.all("*", async (c) => {

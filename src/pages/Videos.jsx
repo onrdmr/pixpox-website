@@ -9,6 +9,8 @@ const Videos = () => {
   const [videos, setVideos] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [selectedVideo, setSelectedVideo] = useState(null);
+  const [loading, setLoading] = useState(false);
+
   const videosPerPage = 8;
 
   useEffect(() => {
@@ -38,31 +40,53 @@ const Videos = () => {
   const handleNextPage = () => currentPage < totalPages && setCurrentPage(currentPage + 1);
   const handlePrevPage = () => currentPage > 1 && setCurrentPage(currentPage - 1);
   // const handleVideoClick = (video) => setSelectedVideo(video);
-  const handleVideoClick = async (video) => {
+//   const handleVideoClick = async (video) => {
+//   try {
+
+//     console.log(video.videoUrl)
+
+//     console.log("video clicked")
+//     const response = await fetch(video.videoUrl, {
+//       method: "GET",
+//       headers: {
+//         Range: "bytes=0-" // request full stream with range support
+//       }
+//     });
+
+//     const buffer = await response.arrayBuffer();
+//     const blob = new Blob([buffer], { type: "video/ogg" });
+//     const blobUrl = URL.createObjectURL(blob);
+
+//     setSelectedVideo({
+//       ...video,
+//       blobUrl
+//     });
+//   } catch (e) {
+//     console.error(e);
+//   }
+// };
+const handleVideoClick = async (video) => {
   try {
+    setLoading(true);  // LOADING BAŞLASIN
+    console.log("video clicked");
 
-    console.log(video.videoUrl)
-
-    console.log("video clicked")
     const response = await fetch(video.videoUrl, {
       method: "GET",
-      headers: {
-        Range: "bytes=0-" // request full stream with range support
-      }
+      headers: { Range: "bytes=0-" }
     });
 
     const buffer = await response.arrayBuffer();
     const blob = new Blob([buffer], { type: "video/ogg" });
     const blobUrl = URL.createObjectURL(blob);
 
-    setSelectedVideo({
-      ...video,
-      blobUrl
-    });
+    setSelectedVideo({ ...video, blobUrl });
   } catch (e) {
     console.error(e);
+  } finally {
+    setLoading(false); // LOADING DURSUN
   }
 };
+
 
   const closeModal = () => setSelectedVideo(null);
 
@@ -98,6 +122,19 @@ const Videos = () => {
         ))}
         <button disabled={currentPage === totalPages} onClick={handleNextPage}>NEXT <ChevronRight /></button>
       </div>
+      {loading && (
+  <div className="loading-overlay">
+    <div className="loading-box">
+      <img 
+        src="https://video.pixpox.tech/Thumbnail/sword-attack.gif" 
+        alt="Loading..." 
+        className="loading-gif"
+      />
+      <div className="loading-text">pixpox.tech</div>
+    </div>
+  </div>
+)}
+
 
       {/* Modal */}
       {selectedVideo && (
