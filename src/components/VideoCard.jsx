@@ -30,14 +30,14 @@ const VideoCard = ({ video, onClick }) => {   // ← onClick ekledik
         </div>
 
         <div className="video-reactions">
-          <button className="reaction-btn pix-btn" aria-label="Pix">
+          {/* <button className="reaction-btn pix-btn" aria-label="Pix">
             <ThumbsUp size={16} />
             <span>{video.pix || 0}</span>
           </button>
           <button className="reaction-btn pox-btn" aria-label="Pox">
             <ThumbsDown size={16} />
             <span>{video.pox || 0}</span>
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

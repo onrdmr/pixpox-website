@@ -251,7 +251,7 @@ export const mockProjects = [
     id: 2,
     title: 'PIXPOX - Pixie',
     description:
-      'Projeksiyon, mini oyun konsolu ve bir yapay zeka asistanını bir araya getiren çok işlevli bir hibrit cihaz — PixPox deneyimini en üst seviyeye taşımak için tasarlandı.',
+      'Mini oyun konsolu ve bir yapay zeka asistanını bir araya getiren çok işlevli bir hibrit cihaz — PixPox deneyimini en üst seviyeye taşımak için tasarlandı.',
     image:
       'https://video.pixpox.tech/Thumbnail/bodypark.png?w=800&h=600&fit=crop',
     tags: ['Robotic', 'AI', 'Asistant', 'Gaming']

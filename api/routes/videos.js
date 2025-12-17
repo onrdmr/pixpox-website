@@ -3,6 +3,40 @@ import { Hono } from "hono";
 
 const videosRouter = new Hono();
 
+videosRouter.get("/random", async (c) => {
+  const sql = c.env.SQL;
+
+  const query = sql`
+    WITH time_seed AS (
+      SELECT floor(extract(epoch from now()) / 10)::text AS seed
+    )
+    SELECT
+      b.json_data,
+      v.*,
+      cu.comment_urls
+    FROM public."Video" v
+    INNER JOIN "Beatmap" b ON v.id = b.id
+    LEFT JOIN LATERAL (
+      SELECT json_agg(c.comment_url) AS comment_urls
+      FROM "Comment" c
+      WHERE c.video_id = v.id
+    ) cu ON TRUE
+    CROSS JOIN time_seed
+    WHERE v.is_deleted = false
+      AND v.is_active = true
+    ORDER BY md5(v.id::text || time_seed.seed)
+    LIMIT 1
+  `;
+
+  const videos = await query;
+
+  return c.json({
+    video: videos[0] ?? null,
+    source: "database",
+    strategy: "10s-deterministic-random",
+  });
+});
+
 // ✅ List videos (with filtering, sorting, pagination, and random selection)
 videosRouter.get("/", async (c) => {
   const { genre, sort, limit = "10", offset = "0" } = c.req.query();
