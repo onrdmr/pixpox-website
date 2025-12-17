@@ -15,7 +15,7 @@ app.use('/*', cors());
 app.use("*", async (c, next) => {
 	try {
 
-		PostgreSQL bağlantısı
+		//PostgreSQL bağlantısı
 		const sql = postgres(
 			c.env.HYPERDRIVE.connectionString,
 			{
