@@ -31,7 +31,7 @@ videosRouter.get("/random", async (c) => {
   const videos = await query;
 
   return c.json({
-    video: videos[0] ?? null,
+    videos: [videos[0]] ?? null,
     source: "database",
     strategy: "10s-deterministic-random",
   });
