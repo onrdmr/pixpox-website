@@ -23,7 +23,7 @@ app.use("*", async (c, next) => {
 				//ssl: "require",
 			}
 		);
-		
+
 		c.env.SQL = sql;
 		c.env.DB_AVAILABLE = true;
 

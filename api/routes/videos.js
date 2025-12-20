@@ -8,7 +8,7 @@ videosRouter.get("/random", async (c) => {
 
   const query = sql`
     WITH time_seed AS (
-      SELECT floor(extract(epoch from now()) / 10)::text AS seed
+      SELECT floor(extract(epoch from now()) / 5)::text AS seed
     )
     SELECT
       b.json_data,
