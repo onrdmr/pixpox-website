@@ -38,7 +38,7 @@ const Console = () => {
         </div>
         <div className="console-image">
           <img 
-            src="https://video.pixpox.tech/Thumbnail/bodypark.png?w=800&h=600&fit=crop" 
+            src="https://video.pixpox.tech/Thumbnail/pixie.jpg?w=800&h=600&fit=crop" 
             alt="Gaming Console"
             loading="lazy"
           />

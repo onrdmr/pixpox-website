@@ -253,7 +253,7 @@ export const mockProjects = [
     description:
       'Mini oyun konsolu ve bir yapay zeka asistanını bir araya getiren çok işlevli bir hibrit cihaz — PixPox deneyimini en üst seviyeye taşımak için tasarlandı.',
     image:
-      'https://video.pixpox.tech/Thumbnail/bodypark.png?w=800&h=600&fit=crop',
+      'https://video.pixpox.tech/Thumbnail/pixie.jpg?w=800&h=600&fit=crop',
     tags: ['Robotic', 'AI', 'Asistant', 'Gaming']
   },
   {

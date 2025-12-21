@@ -15,7 +15,7 @@ app.use('/*', cors());
 app.use("*", async (c, next) => {
 	try {
 
-		// PostgreSQL bağlantısı
+		//PostgreSQL bağlantısı
 		const sql = postgres(
 			c.env.HYPERDRIVE.connectionString,
 			{
@@ -23,6 +23,7 @@ app.use("*", async (c, next) => {
 				//ssl: "require",
 			}
 		);
+
 
 		c.env.SQL = sql;
 		c.env.DB_AVAILABLE = true;
