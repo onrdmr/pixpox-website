@@ -242,10 +242,11 @@ export const mockProjects = [
     id: 1,
     title: 'Pixpox - Game',
     description:
-      'PixPox videolarını oynatmak ve etkileşimli mini oyunları çalıştırmak için özel olarak tasarlandı. Blockchain bağlantılı skor sistemiyle gelir paylaşımı sağlar.',
+      'PixPox videolarını oynatmak ve etkileşimli mini oyunları çalıştırmak için özel olarak tasarlandı. Video bağlantılı skor sistemiyle gelir paylaşımı sağlar.',
     image:
       'https://video.pixpox.tech/Thumbnail/pixpox-intro.png?w=800&h=600&fit=crop',
-    tags: ['Gaming', 'NFT', 'System']
+    tags: ['Gaming', 'NFT', 'System'],
+    url: "https://pixpox.tech"
   },
   {
     id: 2,
@@ -254,14 +255,16 @@ export const mockProjects = [
       'Mini oyun konsolu ve bir yapay zeka asistanını bir araya getiren çok işlevli bir hibrit cihaz — PixPox deneyimini en üst seviyeye taşımak için tasarlandı.',
     image:
       'https://video.pixpox.tech/Thumbnail/pixie.jpg?w=800&h=600&fit=crop',
-    tags: ['Robotic', 'AI', 'Asistant', 'Gaming']
+    tags: ['Robotic', 'AI', 'Asistant', 'Gaming'],
+    url: "https://pixpox.tech/pixie"
   },
   {
     id: 3,
     title: "YTU - Robot Odometry Module",
     description: "Derin öğrenme destekli robot odometri modülü. CNN-RNN modeli kullanılarak KITTI veri setiyle odometri hesaplamaları yapılmış ve Husky robotu üzerinde TensorFlow & ROS ile simülasyonlar gerçekleştirilmiştir.",
     image: "https://video.pixpox.tech/Thumbnail/odometry.png?w=800&h=600&fit=crop",
-    tags: ["Deep Learning", "Odometry", "Robotics", "CNN-RNN", "ROS", "Simulation"]
+    tags: ["Deep Learning", "Odometry", "Robotics", "CNN-RNN", "ROS", "Simulation"],
+    url: "https://github.com/onrdmr/2D-lidar-RCnn-Ros"
   },
   {
     id: 4,
@@ -269,14 +272,15 @@ export const mockProjects = [
     description: "Hareketli nesneleri (araçlar, uçaklar) takip etmek için geliştirilmiş algoritma destekli bir veri tabanı. Berkeley DB ve libspatialindex kullanılarak mekansal veriler yönetilmiş, React tabanlı arayüz ile WebSocket üzerinden snapshot sorgulamaları yapılabilmektedir.",
     image: "https://video.pixpox.tech/Thumbnail/modb.png?w=800&h=600&fit=crop",
     tags: ["Spatial Database", "Moving Objects", "Berkeley DB", "libspatialindex", "React", "WebSocket", "Tracking"],
-    
+    url: "https://github.com/melihocakci/modb"
   },
   {
     id: 5,
     title: "KumoPos — POS Terminal Device",
     description: "Java 11 tabanlı mobil POS uygulamasının bakımı yapıldı, performans ve stabilite iyileştirildi. UI hataları düzeltildi ve POS cihazları ile sunucular arasındaki bağlantı sorunları çözüldü.",
     image: "https://video.pixpox.tech/Thumbnail/pos.jpg",
-    tags: ["Java", "POS", "Mobile App", "Performance", "UI Fixes", "Socket"]
+    tags: ["Java", "POS", "Mobile App", "Performance", "UI Fixes", "Socket"],
+    url: "https://omni.com.tr/en/products/"
   },
   {
     id: 6,
@@ -284,13 +288,15 @@ export const mockProjects = [
     description: "POS ve yemek sepeti entegrasyonu ile kurye dağıtımını ve sipariş takibini sağlayan kapsamlı bir takip uygulaması.",
     image: "https://video.pixpox.tech/Thumbnail/stp.jpg",
     tags: ["Order Tracking", "Delivery Management", "POS Integration", "Courier Tracking", "Food Delivery", "Webhook", "Postgresql"],
+    url: "https://omni.com.tr/en/products/"
   },
   {
     id: 7,
     title: "Omni - Look",
     description: "Anlık POS satış raporlarını görüntülemeye yarayan mobil uygulama. Posta gelen kasa raporları, indirim raporları, açık çekler ve kasiyer raporları gibi finansal veriler kolayca takip edilebilir.",
     image: "https://video.pixpox.tech/Thumbnail/omnilook.jpg?w=800&h=600&fit=crop",
-    tags: ["POS", "Sales Reports", "Financial Tracking", "Cash Reports", "Discount Reports", "Cashier Reports", "Java", ".NET Web API", "MSSQL", "Mobile App"]
+    tags: ["POS", "Sales Reports", "Financial Tracking", "Cash Reports", "Discount Reports", "Cashier Reports", "Java", ".NET Web API", "MSSQL", "Mobile App"],
+    url: "https://omni.com.tr/en/products/"
   },
   {
     id: 8,
@@ -298,6 +304,7 @@ export const mockProjects = [
     description: "Çoklu şubeli ortamlarda POS cihazlarının aktiflik durumlarını izlemeyi ve POS’lara uzaktan işlem scriptleri aktarmayı sağlayan yönetim uygulaması.",
     image: "https://video.pixpox.tech/Thumbnail/posdasboard.png?w=800&h=600&fit=crop",
     tags: ["POS Management", "Multi-branch", "Remote Scripts", "Device Monitoring", "Dashboard"],
+    url: "https://omni.com.tr/en/products/"
   },
   {
     id: 9,
@@ -305,6 +312,7 @@ export const mockProjects = [
     description: "60 sayfalık PDF üreten servis içerisinde Chart.js ve HumanBodyGraph Chart API entegrasyonu ile görselleştirilmiş, algoritmik olarak BG5 verisi hesaplayan ve bastıran uygulama. B2B paket satış ve satın alma özelliği de mevcuttur. Refine, Dev ve Appwrite kullanılarak geliştirilmiştir. Canlı olarak aktif şekilde kullanılmaktadır.",
     image: "https://video.pixpox.tech/Thumbnail/careerpathkey.webp?w=800&h=600&fit=crop",
     tags: ["PDF Generation", "Chart.js", "HumanBodyGraph API", "BG5 Algorithm", "Data Visualization", "B2B Sales", "Refine", "Dev", "Appwrite", "Live Service"],
+    url: "https://alignmentkey.com"
   },
   {
     id: 10,
@@ -312,7 +320,7 @@ export const mockProjects = [
     description: "Tren rayları üzerinde kestirimci bakım sağlayan bir uygulama. YOLO kullanılarak kusurlar tespit edilir ve Grafana üzerinden raporlanır. Görüntü işleme teknikleri, simülasyonlar ve 3D veriler (ISSAC SIM) kullanılarak analizler yapılır.",
     image: "https://video.pixpox.tech/Thumbnail/tren.jpg?w=800&h=600&fit=crop",
     tags: ["Predictive Maintenance", "Railway", "YOLO", "Computer Vision", "3D Simulation", "Grafana", "ISSAC SIM"],
-  
+    url: "https://tubitak.gov.tr/tr"
   },
   {
     id: 11,
@@ -320,7 +328,7 @@ export const mockProjects = [
     description: "NovaStock, stok yönetimi ve purchase/procurement süreçlerini yöneten kapsamlı bir platformdur. Depolar arası transfer, faturalandırma, irsaliyelendirme ve maliyetlendirme işlemleri son satın alım ağırlıklı ortalama ile hesaplanır. Şube yetkilerine göre transfer ve raporlama işlemleri de yönetilebilir.",
     image: "https://video.pixpox.tech/Thumbnail/stock.jpg?w=800&h=600&fit=crop",
     tags: ["Stock Management", "Procurement", "Purchase", "Warehouse Transfer", "Invoicing", "Cost Calculation", "Branch Reporting"],
-    
+    url: "https://indata.com.tr/"
   }
 
 

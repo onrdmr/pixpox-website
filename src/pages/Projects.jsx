@@ -21,12 +21,18 @@ const Projects = () => {
             <div className="project-image">
               <img src={project.image} alt={project.title} loading="lazy" />
               <div className="project-overlay">
-                <button className="btn-view-project">
+                <a
+                  href={project.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-view-project"
+                >
                   <ExternalLink size={20} />
                   View Project
-                </button>
+                </a>
               </div>
             </div>
+
             <div className="project-content">
               <h3 className="project-title">{project.title}</h3>
               <p className="project-description">{project.description}</p>
