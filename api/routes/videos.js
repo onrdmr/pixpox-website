@@ -89,22 +89,6 @@ videosRouter.get("/", async (c) => {
   });
 });
 
-// ✅ Get single video by ID
-videosRouter.get("/:id", async (c) => {
-  const videoId = c.req.param("id");
-  const sql = c.env.SQL;
-
-  const result = await sql`SELECT * FROM public."Video" WHERE id = ${videoId} AND is_deleted = false`;
-
-  if (result.length === 0) {
-    return c.json({ error: "Video not found" }, 404);
-  }
-
-  return c.json({
-    video: result[0],
-    source: "database",
-  });
-});
 
 // ✅ List videos (with filtering, sorting, pagination, and random selection)
 videosRouter.get("/single", async (c) => {
@@ -126,7 +110,7 @@ LEFT JOIN LATERAL (
     WHERE c.video_id = v.id
 ) cu ON TRUE
 WHERE v.is_deleted = false
-  AND v.is_active = true LIMIT 3`;
+  AND v.is_active = true `;
 
   // 🔹 Filter by genre
   if (genre) {
@@ -167,6 +151,24 @@ WHERE v.is_deleted = false
       offset: offsetVal,
       count: videos.length,
     },
+    source: "database",
+  });
+});
+
+
+// ✅ Get single video by ID
+videosRouter.get("/:id", async (c) => {
+  const videoId = c.req.param("id");
+  const sql = c.env.SQL;
+
+  const result = await sql`SELECT * FROM public."Video" WHERE id = ${videoId} AND is_deleted = false`;
+
+  if (result.length === 0) {
+    return c.json({ error: "Video not found" }, 404);
+  }
+
+  return c.json({
+    video: result[0],
     source: "database",
   });
 });
