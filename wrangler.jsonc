@@ -17,6 +17,9 @@
 		"binding": "ASSETS",
 		"not_found_handling": "single-page-application"
 	},
+	"triggers": {
+		"crons": ["* * * * *"] // Her dakika çalıştır
+	},
 	// Hyperdrive binding is optional - if not provided, app will use mock data
 	// To enable Hyperdrive, uncomment and configure properly:
 	/*
@@ -31,15 +34,16 @@
 	"placement": {
 		"mode": "smart"
 	},
+	
 	"upload_source_maps": true,
 	  // Add this to your wrangler.jsonc
-	"hyperdrive": [
-		{
-			"binding": "HYPERDRIVE",
-			"id": "f9e6400e5bb24513a69ee87ba79e54be",
+	// "hyperdrive": [
+	// 	{
+	// 		"binding": "HYPERDRIVE",
+	// 		"id": "f9e6400e5bb24513a69ee87ba79e54be",
 			
-		// Optional. Can be used to connect to a local database for local development with `wrangler dev`
-			// "localConnectionString": 
-		}
-	]
+	// 	// Optional. Can be used to connect to a local database for local development with `wrangler dev`
+	// 		// "localConnectionString": 
+	// 	}
+	// ]
 }

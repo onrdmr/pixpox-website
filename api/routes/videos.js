@@ -5,40 +5,16 @@ const videosRouter = new Hono();
 videosRouter.get("/random", async (c) => {
   const sql = c.env.SQL;
 
-  // TEK SORGULUK KESİN ÇÖZÜM:
-  // Bu sorgu: 10 saniye geçtiyse günceller, geçmediyse sadece mevcut olanı getirir.
+  // Sadece VideoSeed tablosundaki o tek satırı ve ona bağlı video detaylarını getir
   const result = await sql`
-    WITH check_time AS (
-      SELECT 
-        id, 
-        video_id,
-        (updated_at < NOW() - INTERVAL '10 seconds') as needs_update
-      FROM public."VideoSeed"
-      WHERE id = '00000000-0000-0000-0000-000000000001'::uuid
-    ),
-    updater AS (
-      INSERT INTO public."VideoSeed" (id, video_id, updated_at)
-      SELECT 
-        '00000000-0000-0000-0000-000000000001'::uuid, 
-        (SELECT v.id FROM public."Video" v 
-         INNER JOIN "Beatmap" b ON v.id = b.id 
-         WHERE v.is_active = true AND v.is_deleted = false 
-         ORDER BY RANDOM() LIMIT 1), 
-        NOW()
-      WHERE NOT EXISTS (SELECT 1 FROM check_time) OR (SELECT needs_update FROM check_time)
-      ON CONFLICT (id) DO UPDATE SET 
-        video_id = EXCLUDED.video_id, 
-        updated_at = EXCLUDED.updated_at
-      RETURNING video_id
-    )
     SELECT
       b.json_data,
       v.*,
       cu.comment_urls,
-      vs.updated_at as last_sync -- Ne zaman güncellendiğini görelim
-    FROM public."Video" v
+      vs.updated_at as global_sync_time
+    FROM public."VideoSeed" vs
+    INNER JOIN public."Video" v ON vs.video_id = v.id
     INNER JOIN "Beatmap" b ON v.id = b.id
-    INNER JOIN public."VideoSeed" vs ON vs.video_id = v.id
     LEFT JOIN LATERAL (
       SELECT json_agg(c.comment_url) AS comment_urls
       FROM "Comment" c
@@ -48,9 +24,10 @@ videosRouter.get("/random", async (c) => {
     LIMIT 1;
   `;
 
+  // Eğer tablo boşsa (henüz cron çalışmadıysa) boş dizi dön
   return c.json({ 
     videos: result,
-    strategy: "atomic-10s-sync"
+    source: "global-synced-seed"
   });
 });
 // ✅ List videos (with filtering, sorting, pagination, and random selection)

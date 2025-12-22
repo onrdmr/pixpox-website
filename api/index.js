@@ -16,14 +16,20 @@ app.use("*", async (c, next) => {
 	try {
 
 		// PostgreSQL bağlantısı
+		// const sql = postgres(
+		// 	c.env.HYPERDRIVE.connectionString,
+		// 	{
+		// 		max: 3//,
+		// 		//ssl: "require",
+		// 	}
+		// );
 		const sql = postgres(
-			c.env.HYPERDRIVE.connectionString,
+			"postgresql://neondb_owner:npg_B0JZX9CnSdWi@ep-misty-rain-adtg12c9-pooler.c-2.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require",
 			{
-				max: 3//,
-				//ssl: "require",
+				max: 3,
+				ssl: "require",
 			}
 		);
-	
 
 		c.env.SQL = sql;
 		c.env.DB_AVAILABLE = true;
@@ -59,6 +65,40 @@ app.all("*", async (c) => {
 	return new Response("Not Found", { status: 404 });
 });
 
+
 export default {
 	fetch: app.fetch,
+	// 🔹 Yeni eklenecek CRON handler'ı
+  async scheduled(event, env, ctx) {
+    const sql = env.SQL; // Sende env.SQL veya env.DB hangisi tanımlıysa
+    
+    // 1 dakika boyunca 6 kez (60sn / 10sn) çalış
+    for (let i = 0; i < 6; i++) {
+      try {
+        await sql`
+          INSERT INTO public."VideoSeed" (id, video_id, updated_at)
+          SELECT 
+            '00000000-0000-0000-0000-000000000001'::uuid, 
+            v.id, 
+            NOW()
+          FROM public."Video" v
+          INNER JOIN "Beatmap" b ON v.id = b.id
+          WHERE v.is_active = true AND v.is_deleted = false
+          ORDER BY RANDOM()
+          LIMIT 1
+          ON CONFLICT (id) DO UPDATE SET 
+            video_id = EXCLUDED.video_id, 
+            updated_at = EXCLUDED.updated_at;
+        `;
+        console.log(`Video güncellendi (Tur: ${i + 1})`);
+      } catch (err) {
+        console.error("Cron hatası:", err);
+      }
+
+      // 10 saniye bekle (Son turda beklemeye gerek yok)
+      if (i < 5) {
+        await new Promise((resolve) => setTimeout(resolve, 10000));
+      }
+    }
+  }
 };
