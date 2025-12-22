@@ -74,7 +74,7 @@ export default {
 	// 🔹 Yeni eklenecek CRON handler'ı
   async scheduled(event, env, ctx) {
         // ⚠️ ÖNEMLİ: Middleware çalışmadığı için SQL'i burada manuel başlatıyoruz
-        const sql = getSQL(c.env.HYPERDRIVE.connectionString);
+        const sql = getSQL(env.HYPERDRIVE.connectionString);
         
         for (let i = 0; i < 6; i++) {
             try {
