@@ -107,7 +107,7 @@ videosRouter.get("/:id", async (c) => {
 });
 
 // ✅ List videos (with filtering, sorting, pagination, and random selection)
-videosRouter.get("/", async (c) => {
+videosRouter.get("/single", async (c) => {
   const { genre, sort, limit = "10", offset = "0" } = c.req.query();
   const sql = c.env.SQL;
 
