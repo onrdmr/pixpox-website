@@ -132,7 +132,7 @@ WHERE v.is_deleted = false
       query = sql`${query} ORDER BY author DESC`;
       break;
     case "random":
-      query = sql`${query} ORDER BY RANDOM()`;
+      query = sql`${query} ORDER BY RANDOM() LIMIT 1`;
       break;
     default:
       query = sql`${query} ORDER BY created_at DESC`;
