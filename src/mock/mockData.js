@@ -329,7 +329,31 @@ export const mockProjects = [
     image: "https://video.pixpox.tech/Thumbnail/stock.jpg?w=800&h=600&fit=crop",
     tags: ["Stock Management", "Procurement", "Purchase", "Warehouse Transfer", "Invoicing", "Cost Calculation", "Branch Reporting"],
     url: "https://indata.com.tr/"
-  }
+  },
+  {
+  id: 12,
+  title: "Visiomex – Fotovoltaik Hücre Anomali Tespiti",
+  description: "Fotovoltaik (PV) hücrelerdeki anomalileri görüntü işleme teknikleri kullanarak tespit etmek üzere tasarlanmış, bilgisayarla görü tabanlı bir masaüstü uygulamasıdır. Sistem; OpenCV ve HALCON tabanlı anomali ve kusur tespit algoritmalarını sezgisel bir PyQt5 grafiksel kullanıcı arayüzü ile birleştirerek, güneş hücresi kusurlarının hızlı ve verimli bir şekilde incelenmesini ve analiz edilmesini sağlar.",
+  image: "https://video.pixpox.tech/Thumbnail/fotovoltaik.png?w=800&h=600&fit=crop",
+  tags: [
+    "Bilgisayarla Görü",
+    "Güneş Paneli İncelemesi",
+    "Fotovoltaik Hücre Tespiti",
+    "Anomali Tespiti",
+    "Kusur Tespiti",
+    "Görüntü İşleme",
+    "Endüstriyel İnceleme",
+    "Kalite Kontrol",
+    "OpenCV",
+    "HALCON",
+    "PyQt5",
+    "Masaüstü Uygulaması",
+    "Otomasyon",
+    "Makine Görüsü"
+  ],
+  url: "https://visiomex.com/"
+}
+
 
 
 
