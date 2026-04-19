@@ -568,8 +568,9 @@ const Intro = () => {
   }, []);
 
   return (
-    <div className="intro-container dark">
-      <div className="circuit-bg"></div>
+    <div className="intro-page dark">
+      <div className="intro-container">
+        <div className="circuit-bg"></div>
 
       <div id="loader" className="loader-overlay">
         <div className="loader-ring"></div>
