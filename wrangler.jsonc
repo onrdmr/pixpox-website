@@ -43,7 +43,7 @@
 			"id": "f9e6400e5bb24513a69ee87ba79e54be",
 			
 		// Optional. Can be used to connect to a local database for local development with `wrangler dev`
-			// "localConnectionString": 
+			"localConnectionString": "postgresql://neondb_owner:npg_FScumtBoX46a@ep-nameless-sunset-anuxbd91-pooler.c-6.us-east-1.aws.neon.tech/neondb?sslmode=require"
 		}
 	]
 }

@@ -5,6 +5,10 @@ import postgres from "postgres";
 import videosRouter from "./routes/videos.js";
 import mangaRouter from "./routes/manga.js";
 import videoProxy from './routes/videoProxy.js';
+import rpRouter from "./routes/rp.js";
+import statsRouter from "./routes/stats.js";
+import streamRouter from "./routes/stream.js";
+import kickRouter from "./routes/kick.js";
 // import bookRelatedRouter from "./routes/book-related";
 // import { mockBooks } from "./lib/mockData";
 
@@ -59,6 +63,10 @@ app.route("/api/videos", videosRouter);
 // app.route("/api/books/:id/related", bookRelatedRouter);
 app.route('/api/video-proxy', videoProxy);
 app.route('/api/manga', mangaRouter);
+app.route('/api/rp', rpRouter);
+app.route('/api/stats', statsRouter);
+app.route('/api/stream', streamRouter);
+app.route('/api/kick', kickRouter);
 
 // Statik dosyalar (frontend)
 app.all("*", async (c) => {

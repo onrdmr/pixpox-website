@@ -23,7 +23,7 @@ function AppContent() {
 		<div className="App">
 			<Routes>
 				<Route path="/" element={<Intro />} />
-				<Route path="/game" element={
+				<Route path="/games" element={
 					<>
 						<Navbar />
 						<main className="main-content">

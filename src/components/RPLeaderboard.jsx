@@ -23,7 +23,7 @@ export function RPLeaderboard() {
         sortBy,
         sortOrder,
       });
-      const res = await fetch(`https://api.pixpox.tech/api/rp/leaderboard?${params}`);
+      const res = await fetch(`/api/rp/leaderboard?${params}`);
       const json = await res.json();
       setData(json);
     } catch (err) {
