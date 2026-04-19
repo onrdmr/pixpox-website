@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://l63hyirv4bq7"]
+
+[ext_resource type="VideoStream" path="res://beats/test.ogv" id="2_kxrij"]
+[ext_resource type="Script" path="res://video_stream_player.gd" id="3_yu8y0"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 320.0
+offset_bottom = 352.0
+stream = ExtResource("2_kxrij")
+autoplay = true
+expand = true
+script = ExtResource("3_yu8y0")

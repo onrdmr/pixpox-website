@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cueqechy5jsri"]
+
+[sub_resource type="Gradient" id="Gradient_4ob0f"]
+offsets = PackedFloat32Array(0, 0.157265, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.0153846, 0.0153846, 0.0153846, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ji7ac"]
+gradient = SubResource("Gradient_4ob0f")
+width = 128
+height = 128
+fill_from = Vector2(1, 0)
+
+[node name="Cell" type="Sprite2D"]
+modulate = Color(0.964706, 0.839216, 0.741176, 1)
+scale = Vector2(0.1, 0.1)
+texture = SubResource("GradientTexture2D_ji7ac")

@@ -1,0 +1,144 @@
+[gd_scene load_steps=23 format=3 uid="uid://l63hyirv4bq7"]
+
+[ext_resource type="Script" path="res://video_stream_player.gd" id="1_qrd6d"]
+[ext_resource type="Script" path="res://input_processor.gd" id="2_dllfb"]
+[ext_resource type="PackedScene" uid="uid://b01q46ff08roc" path="res://nyan_cat.tscn" id="3_evw6t"]
+[ext_resource type="Script" path="res://nyan_cat.gd" id="4_gemwp"]
+[ext_resource type="FontFile" path="res://Fonts/heartbit2x.tres" id="5_5pjxy"]
+[ext_resource type="Texture2D" uid="uid://d1j4sq15df0ph" path="res://Sprites/characters/sword-attack-export1.png" id="6_342ca"]
+[ext_resource type="Texture2D" uid="uid://b2w6ln8kjwxav" path="res://Sprites/characters/sword-attack-export2.png" id="7_ys8y5"]
+[ext_resource type="Texture2D" uid="uid://cneare08uyap8" path="res://Sprites/characters/sword-attack-export3.png" id="8_570m5"]
+[ext_resource type="Texture2D" uid="uid://kev161pjejfy" path="res://Sprites/characters/sword-attack-export4.png" id="9_ujlsl"]
+[ext_resource type="Texture2D" uid="uid://b0d2avh3e1wg1" path="res://Sprites/characters/sword-attack-export5.png" id="10_hlp2h"]
+[ext_resource type="Texture2D" uid="uid://bswu78frqm1qu" path="res://Sprites/characters/sword-attack-export6.png" id="11_bc86j"]
+[ext_resource type="Texture2D" uid="uid://d4ko5vlvx6ag4" path="res://Sprites/characters/sword-attack-export7.png" id="12_5xvd2"]
+[ext_resource type="Texture2D" uid="uid://byy7bptdhvc3g" path="res://Sprites/characters/sword-attack-export8.png" id="13_ikll2"]
+[ext_resource type="Texture2D" uid="uid://d1j0qb30i2te6" path="res://Sprites/characters/sword-attack-export9.png" id="14_1p4v6"]
+[ext_resource type="Texture2D" uid="uid://ba2wh87avn1rp" path="res://Sprites/characters/sword-attack-export10.png" id="15_8uxqi"]
+[ext_resource type="Texture2D" uid="uid://itinausf63x3" path="res://Sprites/characters/sword-attack-export11.png" id="16_6np08"]
+[ext_resource type="Texture2D" uid="uid://beamtrvot8q83" path="res://Sprites/characters/sword-attack-export12.png" id="17_56sro"]
+[ext_resource type="Texture2D" uid="uid://d2ni30ioharfk" path="res://Sprites/characters/sword-attack-export13.png" id="18_dkfwq"]
+[ext_resource type="Texture2D" uid="uid://ii842kyiab6q" path="res://Sprites/characters/sword-attack-export14.png" id="19_tu13f"]
+[ext_resource type="Texture2D" uid="uid://di6sclld65mq4" path="res://Sprites/characters/sword-attack-export15.png" id="20_up0ha"]
+[ext_resource type="Texture2D" uid="uid://dljhgc2s08xg" path="res://Sprites/characters/sword-attack-export16.png" id="21_txci6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w74rq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_342ca")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ys8y5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_570m5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ujlsl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_hlp2h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_bc86j")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_5xvd2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_ikll2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_1p4v6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_8uxqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_6np08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_56sro")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_dkfwq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_tu13f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_up0ha")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_txci6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Game" type="Node2D"]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 189.0
+offset_bottom = 320.0
+autoplay = true
+expand = true
+script = ExtResource("1_qrd6d")
+
+[node name="InputProcessor" type="Node2D" parent="." node_paths=PackedStringArray("attack_dash")]
+script = ExtResource("2_dllfb")
+attack_dash = NodePath("../AttackDash")
+
+[node name="Interval" type="Timer" parent="InputProcessor"]
+wait_time = 0.1
+
+[node name="Limit" type="Timer" parent="InputProcessor"]
+wait_time = 5.0
+
+[node name="NyanCat" parent="." instance=ExtResource("3_evw6t")]
+position = Vector2(94, 114)
+script = ExtResource("4_gemwp")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="NyanCat"]
+offset_left = -146.0
+offset_top = 72.0
+offset_right = 160.0
+offset_bottom = 266.0
+theme_override_colors/table_border = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_colors/table_even_row_bg = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_colors/table_odd_row_bg = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_colors/default_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_colors/font_selected_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/normal_font = ExtResource("5_5pjxy")
+theme_override_font_sizes/normal_font_size = 30
+text = "You have no enemies. No one...Has any enemies. There is no one...That you should hurt"
+autowrap_mode = 1
+
+[node name="Label" type="Label" parent="NyanCat"]
+offset_left = -46.0
+offset_top = 264.0
+offset_right = 160.0
+offset_bottom = 297.0
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_fonts/font = ExtResource("5_5pjxy")
+theme_override_font_sizes/font_size = 30
+text = "Thors- Vinland Saga"
+autowrap_mode = 3
+justification_flags = 235
+
+[node name="AttackDash" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(107.5, 91.5)
+scale = Vector2(0.154618, 0.189427)
+sprite_frames = SubResource("SpriteFrames_w74rq")
+frame_progress = 0.765059
+speed_scale = 5.0
+
+[connection signal="finished" from="VideoStreamPlayer" to="VideoStreamPlayer" method="_on_finished"]
+[connection signal="session_loaded" from="VideoStreamPlayer" to="NyanCat" method="_on_video_stream_player_session_loaded"]
+[connection signal="enemyCut" from="InputProcessor" to="VideoStreamPlayer" method="_on_input_processor_enemy_cut"]
+[connection signal="timeout" from="InputProcessor/Interval" to="InputProcessor" method="_on_Interval_timeout"]
+[connection signal="timeout" from="InputProcessor/Limit" to="InputProcessor" method="_on_Limit_timeout"]

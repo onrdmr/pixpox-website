@@ -1,0 +1,249 @@
+[gd_scene load_steps=32 format=3 uid="uid://co1jl22w2duvk"]
+
+[ext_resource type="Script" path="res://collection.gd" id="1_uu3pb"]
+[ext_resource type="Texture2D" uid="uid://c0jf00fhu8dme" path="res://Scenes/Ekran görüntüsü 2025-10-26 235935.png" id="1_xcsga"]
+[ext_resource type="Texture2D" uid="uid://cda13uik7ms8a" path="res://Sprites/characters/buy1.png" id="2_jideq"]
+[ext_resource type="Texture2D" uid="uid://cayyyedriwbv3" path="res://Sprites/characters/buy2.png" id="3_x1evv"]
+[ext_resource type="Texture2D" uid="uid://v8lv586sl67d" path="res://Sprites/characters/buy3.png" id="4_o8e2n"]
+[ext_resource type="Texture2D" uid="uid://sb6eisulbpsp" path="res://Sprites/characters/sell1.png" id="14_po17w"]
+[ext_resource type="Texture2D" uid="uid://cnlnmn3h3d7e5" path="res://Sprites/characters/sell2.png" id="15_8amw6"]
+[ext_resource type="Texture2D" uid="uid://ct2h7qmm3kfyd" path="res://Sprites/characters/sell3.png" id="16_5u84v"]
+[ext_resource type="Texture2D" uid="uid://cyx67dtc7sppm" path="res://Sprites/particles/star.png" id="26_fc5ml"]
+[ext_resource type="Texture2D" uid="uid://c6wvao7dav04w" path="res://Videos/test2.png" id="27_7dofb"]
+[ext_resource type="Texture2D" uid="uid://d1j4sq15df0ph" path="res://Sprites/characters/sword-attack-export1.png" id="27_qkbtv"]
+[ext_resource type="Texture2D" uid="uid://b2w6ln8kjwxav" path="res://Sprites/characters/sword-attack-export2.png" id="28_y8nhs"]
+[ext_resource type="Texture2D" uid="uid://cneare08uyap8" path="res://Sprites/characters/sword-attack-export3.png" id="29_ypbpo"]
+[ext_resource type="Texture2D" uid="uid://kev161pjejfy" path="res://Sprites/characters/sword-attack-export4.png" id="30_rgju2"]
+[ext_resource type="Texture2D" uid="uid://b0d2avh3e1wg1" path="res://Sprites/characters/sword-attack-export5.png" id="31_y05n4"]
+[ext_resource type="Texture2D" uid="uid://bswu78frqm1qu" path="res://Sprites/characters/sword-attack-export6.png" id="32_fpw8a"]
+[ext_resource type="Texture2D" uid="uid://d4ko5vlvx6ag4" path="res://Sprites/characters/sword-attack-export7.png" id="33_74183"]
+[ext_resource type="Texture2D" uid="uid://byy7bptdhvc3g" path="res://Sprites/characters/sword-attack-export8.png" id="34_1lwt7"]
+[ext_resource type="Texture2D" uid="uid://d1j0qb30i2te6" path="res://Sprites/characters/sword-attack-export9.png" id="35_rh0kb"]
+[ext_resource type="Texture2D" uid="uid://ba2wh87avn1rp" path="res://Sprites/characters/sword-attack-export10.png" id="36_dhllx"]
+[ext_resource type="Texture2D" uid="uid://itinausf63x3" path="res://Sprites/characters/sword-attack-export11.png" id="37_xj47y"]
+[ext_resource type="Texture2D" uid="uid://beamtrvot8q83" path="res://Sprites/characters/sword-attack-export12.png" id="38_t81ua"]
+[ext_resource type="Texture2D" uid="uid://d2ni30ioharfk" path="res://Sprites/characters/sword-attack-export13.png" id="39_yaltn"]
+[ext_resource type="Texture2D" uid="uid://ii842kyiab6q" path="res://Sprites/characters/sword-attack-export14.png" id="40_di7lw"]
+[ext_resource type="Texture2D" uid="uid://di6sclld65mq4" path="res://Sprites/characters/sword-attack-export15.png" id="41_ugogc"]
+[ext_resource type="Texture2D" uid="uid://dljhgc2s08xg" path="res://Sprites/characters/sword-attack-export16.png" id="42_6s0fy"]
+[ext_resource type="Script" path="res://Scenes/attack_dash.gd" id="43_n5wyf"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kl6js"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jideq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_x1evv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_o8e2n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ww40g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_po17w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_8amw6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_5u84v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1amsq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("27_qkbtv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_y8nhs")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_ypbpo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_rgju2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_y05n4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_fpw8a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_74183")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_1lwt7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_rh0kb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_dhllx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_xj47y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_t81ua")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_yaltn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_di7lw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_ugogc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_6s0fy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="Theme" id="Theme_mvakq"]
+
+[node name="Collection" type="Node2D"]
+script = ExtResource("1_uu3pb")
+
+[node name="Table" type="Sprite2D" parent="."]
+position = Vector2(95.5, 194.75)
+scale = Vector2(0.555233, 0.901079)
+texture = ExtResource("1_xcsga")
+
+[node name="Buy" type="AnimatedSprite2D" parent="."]
+z_index = -2
+position = Vector2(48, 35.25)
+scale = Vector2(0.48, 0.3525)
+sprite_frames = SubResource("SpriteFrames_kl6js")
+flip_h = true
+
+[node name="Sell" type="AnimatedSprite2D" parent="."]
+position = Vector2(143, 35)
+scale = Vector2(0.192771, 0.140562)
+sprite_frames = SubResource("SpriteFrames_ww40g")
+
+[node name="VideoCutParticle" type="CPUParticles2D" parent="."]
+z_index = 1
+position = Vector2(95.52, 190.73)
+scale = Vector2(1.88755, 1.36546)
+emitting = false
+amount = 25
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.8
+randomness = 0.07
+local_coords = true
+texture = ExtResource("26_fc5ml")
+emission_shape = 1
+emission_sphere_radius = 20.0
+spread = 180.0
+initial_velocity_max = 100.0
+linear_accel_min = -100.0
+linear_accel_max = -100.0
+
+[node name="BuyButton" type="Button" parent="."]
+offset_left = 29.0
+offset_top = 36.0
+offset_right = 79.0
+offset_bottom = 66.0
+focus_mode = 0
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="SellCPUParticles2D" type="CPUParticles2D" parent="."]
+visible = false
+position = Vector2(143, 36)
+scale = Vector2(1.88755, 1.36546)
+emitting = false
+amount = 16
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.8
+randomness = 0.07
+local_coords = true
+texture = ExtResource("26_fc5ml")
+emission_shape = 1
+emission_sphere_radius = 20.0
+spread = 180.0
+initial_velocity_max = 100.0
+linear_accel_min = -100.0
+linear_accel_max = -100.0
+
+[node name="SellButton" type="Button" parent="."]
+offset_left = 114.0
+offset_top = 40.0
+offset_right = 161.0
+offset_bottom = 65.0
+focus_mode = 0
+flat = true
+metadata/_edit_use_anchors_ = true
+
+[node name="AttackDash" type="AnimatedSprite2D" parent="."]
+z_index = 2
+position = Vector2(29, 189)
+scale = Vector2(0.222892, 0.449339)
+sprite_frames = SubResource("SpriteFrames_1amsq")
+frame_progress = 0.137543
+speed_scale = 5.0
+script = ExtResource("43_n5wyf")
+
+[node name="VideoImage" type="Sprite2D" parent="."]
+position = Vector2(95.8125, 195.25)
+scale = Vector2(0.1, 0.137)
+texture = ExtResource("27_7dofb")
+
+[node name="NextButton" type="Button" parent="."]
+offset_left = 65.0
+offset_top = 90.0
+offset_right = 125.0
+offset_bottom = 126.0
+focus_mode = 0
+theme_type_variation = &"FlatButton"
+metadata/_edit_use_anchors_ = true
+
+[node name="PreviousButton" type="Button" parent="."]
+offset_left = 66.0
+offset_top = 265.0
+offset_right = 125.0
+offset_bottom = 301.0
+focus_mode = 0
+theme_type_variation = &"FlatButton"
+
+[node name="ConfirmationDialog" type="ConfirmationDialog" parent="."]
+sdf_oversize = 0
+positional_shadow_atlas_size = 0
+mode = 4
+title = "POXING"
+initial_position = 2
+size = Vector2i(200, 50)
+min_size = Vector2i(0, 0)
+max_size = Vector2i(200, 50)
+content_scale_size = Vector2i(50, 50)
+theme = SubResource("Theme_mvakq")
+ok_button_text = "PIX"
+cancel_button_text = "POX"
+
+[connection signal="animation_finished" from="Buy" to="." method="_on_buy_animation_finished"]
+[connection signal="animation_finished" from="Sell" to="." method="_on_sell_animation_finished"]
+[connection signal="button_down" from="BuyButton" to="." method="_on_buy_button_button_down"]
+[connection signal="button_down" from="SellButton" to="." method="_on_sell_button_button_down"]
+[connection signal="button_down" from="NextButton" to="." method="_on_next_button_button_down"]
+[connection signal="button_down" from="PreviousButton" to="." method="_on_previous_button_button_down"]

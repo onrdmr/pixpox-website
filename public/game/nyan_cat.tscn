@@ -1,0 +1,67 @@
+[gd_scene load_steps=9 format=3 uid="uid://b01q46ff08roc"]
+
+[ext_resource type="Texture2D" uid="uid://cyx67dtc7sppm" path="res://Sprites/particles/star.png" id="1_cqrjn"]
+[ext_resource type="Texture2D" uid="uid://b3ymmfrx6wkfb" path="res://frame_001.png" id="2_yo4e0"]
+[ext_resource type="Texture2D" uid="uid://srt2jrkce5ae" path="res://frame_002.png" id="3_dpp12"]
+[ext_resource type="Texture2D" uid="uid://ndduciraxt7b" path="res://frame_003.png" id="4_k0p1e"]
+[ext_resource type="Texture2D" uid="uid://vdcn2868t0jf" path="res://frame_004.png" id="5_xw5lp"]
+[ext_resource type="Texture2D" uid="uid://bbtynwd0rjjbm" path="res://frame_005.png" id="6_1xxcp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_krho5"]
+size = Vector2(128, 126.394)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ljmg5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_yo4e0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_dpp12")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_k0p1e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_xw5lp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_1xxcp")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[node name="NyanCat" type="Node2D"]
+scale = Vector2(0.5, 0.5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.77263e-06)
+shape = SubResource("RectangleShape2D_krho5")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+scale = Vector2(10, 10)
+emitting = false
+amount = 16
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.8
+randomness = 0.07
+local_coords = true
+texture = ExtResource("1_cqrjn")
+emission_shape = 1
+emission_sphere_radius = 20.0
+spread = 180.0
+initial_velocity_max = 100.0
+linear_accel_min = -100.0
+linear_accel_max = -100.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ljmg5")
+animation = &"new_animation"
+autoplay = "new_animation"

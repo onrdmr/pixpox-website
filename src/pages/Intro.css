@@ -1,0 +1,221 @@
+.intro-page {
+  --bg: #05050f;
+  --surface: #0a0a1f;
+  --surface2: #12123a;
+  --purple: #7c3aed;
+  --cyan: #06b6d4;
+  --pink: #ec4899;
+  --text: #f1f0ff;
+  --text-muted: #a09bc0;
+  --text-dim: #4a4578;
+  --glow-purple: 0 0 30px rgba(124, 58, 237, .4);
+  --glow-cyan: 0 0 30px rgba(6, 182, 212, .4);
+  
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Rajdhani', sans-serif;
+  overflow-x: hidden;
+}
+
+.intro-page * {
+  box-sizing: border-box;
+}
+
+#hero {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+#hero-canvas {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: radial-gradient(ellipse at center, transparent 30%, var(--bg) 80%);
+  pointer-events: none;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 3;
+  text-align: center;
+}
+
+.hero-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(42px, 8vw, 96px);
+  font-weight: 900;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.hero-title .line1 {
+  display: block;
+  background: linear-gradient(135deg, var(--cyan), var(--text));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-title .line2 {
+  display: block;
+  background: linear-gradient(135deg, var(--purple), var(--pink));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: .6em;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  padding: 16px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(20px);
+  background: rgba(5, 5, 15, .6);
+  border-bottom: 1px solid rgba(124, 58, 237, .15);
+}
+
+.nav-logo-text {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 22px;
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--cyan), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-left: 10px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+.nav-links a {
+  color: var(--text-muted);
+  font-size: 14px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color .3s;
+}
+
+.nav-links a:hover {
+  color: var(--cyan);
+}
+
+.nav-cta {
+  padding: 8px 24px;
+  border: 1px solid var(--purple);
+  border-radius: 8px;
+  color: var(--purple);
+  font-weight: 600;
+  transition: all .3s;
+}
+
+.nav-cta:hover {
+  background: var(--purple);
+  color: #fff;
+  box-shadow: var(--glow-purple);
+}
+
+#character-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#character-canvas-wrap {
+  width: 100%;
+  height: 100vh;
+}
+
+#character-canvas {
+  width: 100%;
+  height: 100%;
+}
+
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 1300px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.bento-card {
+  padding: 40px;
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, .05);
+  background: rgba(255, 255, 255, .02);
+  backdrop-filter: blur(10px);
+}
+
+.bento-card.span-2 {
+  grid-column: span 2;
+}
+
+.bento-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 20px;
+  margin-bottom: 12px;
+}
+
+.footer {
+  padding: 60px 40px;
+  text-align: center;
+  border-top: 1px solid rgba(124, 58, 237, .1);
+}
+
+.footer-logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 28px;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, var(--cyan), var(--purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+#loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity .8s, visibility .8s;
+}
+
+#loader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loader-ring {
+  width: 80px;
+  height: 80px;
+  border: 3px solid transparent;
+  border-top-color: var(--cyan);
+  border-right-color: var(--purple);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }

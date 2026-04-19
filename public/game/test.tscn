@@ -1,0 +1,140 @@
+[gd_scene load_steps=17 format=3 uid="uid://8qoqeaiugxta"]
+
+[ext_resource type="Texture2D" uid="uid://0c8q2gnra26g" path="res://icon.svg" id="1_pxtcj"]
+[ext_resource type="Script" path="res://circle.gd" id="2_8uh7m"]
+[ext_resource type="Texture2D" uid="uid://cyx67dtc7sppm" path="res://Sprites/particles/star.png" id="3_6uqi0"]
+[ext_resource type="FontFile" path="res://Fonts/heartbit2x.tres" id="4_3q2qq"]
+[ext_resource type="Texture2D" uid="uid://d4amu4bft3gx7" path="res://Sprites/characters/stickman-export1.png" id="5_qu7mb"]
+[ext_resource type="Texture2D" uid="uid://gat7634htuy0" path="res://Sprites/characters/stickman-export2.png" id="6_4e1rh"]
+[ext_resource type="Texture2D" uid="uid://bxqedgs250han" path="res://Sprites/characters/stickman-export3.png" id="7_2puh6"]
+[ext_resource type="Texture2D" uid="uid://cp5mameaj7tyo" path="res://Sprites/characters/stickman-export4.png" id="8_gsqbo"]
+[ext_resource type="Texture2D" uid="uid://bb7kyr85g3upv" path="res://Sprites/characters/stickman-export5.png" id="9_f3boc"]
+[ext_resource type="Texture2D" uid="uid://cqq6x6aphgb6o" path="res://Sprites/characters/stickman-export6.png" id="10_67oh0"]
+[ext_resource type="Texture2D" uid="uid://molpdbbcjvjr" path="res://Sprites/characters/stickman-export7.png" id="11_0koys"]
+[ext_resource type="Texture2D" uid="uid://bh6n6i4hpk2pj" path="res://Sprites/characters/stickman-export8.png" id="12_ml70e"]
+[ext_resource type="Texture2D" uid="uid://cim2q8ndgvtro" path="res://Sprites/characters/stickman-export9.png" id="13_n5th1"]
+[ext_resource type="Texture2D" uid="uid://h2y8024qchn5" path="res://Sprites/characters/stickman-export10.png" id="14_l83iw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_37kl0"]
+size = Vector2(128, 126.394)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3j5o1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_qu7mb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_4e1rh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_2puh6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_gsqbo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_f3boc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_67oh0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_0koys")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_ml70e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_n5th1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_l83iw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Circle" type="Area2D" groups=["test"]]
+scale = Vector2(0.25, 0.269)
+script = ExtResource("2_8uh7m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.77263e-06)
+shape = SubResource("RectangleShape2D_37kl0")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+scale = Vector2(10, 10)
+emitting = false
+amount = 16
+lifetime = 0.3
+one_shot = true
+explosiveness = 0.8
+randomness = 0.07
+local_coords = true
+texture = ExtResource("3_6uqi0")
+emission_shape = 1
+emission_sphere_radius = 20.0
+spread = 180.0
+initial_velocity_max = 100.0
+linear_accel_min = -100.0
+linear_accel_max = -100.0
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_pxtcj")
+
+[node name="Combo1" type="Label" parent="."]
+offset_left = -180.0
+offset_top = -100.372
+offset_right = -67.0
+offset_bottom = -67.3717
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_fonts/font = ExtResource("4_3q2qq")
+theme_override_font_sizes/font_size = 40
+
+[node name="Combo2" type="Label" parent="."]
+offset_left = 68.0
+offset_top = -100.372
+offset_right = 188.0
+offset_bottom = -67.3717
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_fonts/font = ExtResource("4_3q2qq")
+theme_override_font_sizes/font_size = 40
+
+[node name="Combo3" type="Label" parent="."]
+offset_left = -188.0
+offset_top = 63.197
+offset_right = -68.0
+offset_bottom = 96.197
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_fonts/font = ExtResource("4_3q2qq")
+theme_override_font_sizes/font_size = 40
+
+[node name="Combo4" type="Label" parent="."]
+offset_left = 68.0
+offset_top = 55.7621
+offset_right = 188.0
+offset_bottom = 88.7621
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_fonts/font = ExtResource("4_3q2qq")
+theme_override_font_sizes/font_size = 40
+
+[node name="Status" type="Label" parent="."]
+offset_left = -44.0
+offset_top = -18.5874
+offset_right = 48.0
+offset_bottom = 14.4126
+theme_override_colors/font_color = Color(0.964706, 0.839216, 0.741176, 1)
+theme_override_fonts/font = ExtResource("4_3q2qq")
+theme_override_font_sizes/font_size = 40
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -3.71747)
+scale = Vector2(0.71875, 0.687732)
+sprite_frames = SubResource("SpriteFrames_3j5o1")
