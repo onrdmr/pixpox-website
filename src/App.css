@@ -2,6 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 
 /* === PIXEL ART 8-BIT GAMING THEME === */
+/* All rules scoped to `.App` so they don't bleed onto the Intro/home route */
+
+@scope (.App) {
 
 /* Base Styles */
 * {
@@ -1176,8 +1179,10 @@
   .page-header {
     padding: 1rem;
   }
-  
+
   .footer-content {
     grid-template-columns: 1fr;
   }
 }
+
+} /* end @scope (.App) */

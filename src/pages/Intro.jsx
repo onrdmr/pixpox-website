@@ -498,18 +498,21 @@ const Intro = () => {
             document.querySelector(".navbar")?.classList.add("loaded");
             document.getElementById("hero")?.classList.add("loaded");
             document.querySelector(".hero-content")?.classList.add("loaded");
+            ScrollTrigger.refresh();
           }, 100);
         }
       };
 
       window.addEventListener("load", () => {
-        setTimeout(hideLoader, 5000);
+        setTimeout(hideLoader, 800);
       });
 
       // Fallback if window load already fired
       if (document.readyState === "complete") {
-        setTimeout(hideLoader, 5000);
+        setTimeout(hideLoader, 800);
       }
+      // Extra fallback in case "load" event already fired before this useEffect ran
+      setTimeout(hideLoader, 2500);
 
       // Fetch live stats from backend
       async function fetchLiveStats() {
@@ -568,9 +571,8 @@ const Intro = () => {
   }, []);
 
   return (
-    <div className="intro-page dark">
-      <div className="intro-container">
-        <div className="circuit-bg"></div>
+    <>
+      <div className="circuit-bg"></div>
 
       <div id="loader" className="loader-overlay">
         <div className="loader-ring"></div>
@@ -729,7 +731,7 @@ const Intro = () => {
         </div>
         <div className="footer-copy">© 2026 PixPox.tech - Tum haklari saklidir.</div>
       </footer>
-    </div>
+    </>
   );
 };
 
