@@ -1,21 +1,21 @@
 .intro-container {
-  --bg: #05050f;
-  --surface: #0a0a1f;
-  --surface2: #12123a;
-  --purple: #7c3aed;
-  --cyan: #06b6d4;
-  --pink: #ec4899;
-  --green: #10b981;
-  --text: #f1f0ff;
-  --text-muted: #a09bc0;
-  --text-dim: #4a4578;
+  --bg: var(--background);
+  --surface: var(--card);
+  --surface2: var(--muted);
+  --purple: oklch(0.627 0.265 303.9);
+  --cyan: oklch(0.696 0.17 162.48);
+  --pink: oklch(0.645 0.246 16.439);
+  --green: oklch(0.769 0.188 70.08);
+  --text: var(--foreground);
+  --text-muted: var(--muted-foreground);
+  --text-dim: var(--text-muted);
   --glow-purple: 0 0 30px rgba(124, 58, 237, 0.4);
   --glow-cyan: 0 0 30px rgba(6, 182, 212, 0.4);
   --glow-pink: 0 0 30px rgba(236, 72, 153, 0.4);
 
   background: var(--bg);
   color: var(--text);
-  font-family: "Rajdhani", sans-serif;
+  font-family: 'Geist Sans', 'Rajdhani', sans-serif;
   overflow-x: hidden;
   position: relative;
 }

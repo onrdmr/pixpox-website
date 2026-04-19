@@ -71,7 +71,13 @@ videosRouter.get("/", async (c) => {
         WHERE c.video_id = v.id
     ) cu ON TRUE
     ${whereClause}
-    ORDER BY v.created_at DESC -- Sıralama tercihini buraya ekleyebilirsin
+    ${whereClause}
+    ${sort === "title_asc" ? sql`ORDER BY v.title ASC` : 
+      sort === "title_desc" ? sql`ORDER BY v.title DESC` :
+      sort === "author_asc" ? sql`ORDER BY v.author ASC` :
+      sort === "author_desc" ? sql`ORDER BY v.author DESC` :
+      sort === "random" ? sql`ORDER BY RANDOM()` :
+      sql`ORDER BY v.created_at DESC`}
     LIMIT ${limitVal} OFFSET ${offsetVal}
   `;
 
@@ -114,7 +120,7 @@ WHERE v.is_deleted = false
 
   // 🔹 Filter by genre
   if (genre) {
-    query = sql`SELECT v.* FROM public."Video" v on WHERE v.is_deleted = false AND v.is_active = true AND v.genre = ${genre}`;
+    query = sql`SELECT v.* FROM public."Video" v WHERE v.is_deleted = false AND v.is_active = true AND v.genre = ${genre}`;
   }
 
   // 🔹 Apply sorting

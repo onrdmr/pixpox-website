@@ -448,7 +448,7 @@ const Intro = () => {
           const card = document.createElement("div");
           card.className = `bento-card${item.span ? " span-2" : ""}`;
           card.innerHTML = `
-            <div class="bento-icon">${item.icon}</div>
+            <div class="bento-icon">${iconMap[item.icon] || "📦"}</div>
             <span class="bento-status">${item.status}</span>
             <h3 class="bento-title">${item.title}<span class="bento-meta">${item.meta}</span></h3>
             <p class="bento-desc">${item.desc}</p>
@@ -488,17 +488,28 @@ const Intro = () => {
         lastScroll = currentScroll;
       });
 
-      // Hide loader after everything and show content
-      setTimeout(() => {
+      // ─── LOADER ───
+      const hideLoader = () => {
         const l = document.getElementById("loader");
-        if (l) l.classList.add("hidden");
-        
-        setTimeout(() => {
-          document.querySelector(".navbar")?.classList.add("loaded");
-          document.getElementById("hero")?.classList.add("loaded");
-          document.querySelector(".hero-content")?.classList.add("loaded");
-        }, 100);
-      }, 2000);
+        if (l && !l.classList.contains("hidden")) {
+          l.classList.add("hidden");
+          // Show content after loader hides
+          setTimeout(() => {
+            document.querySelector(".navbar")?.classList.add("loaded");
+            document.getElementById("hero")?.classList.add("loaded");
+            document.querySelector(".hero-content")?.classList.add("loaded");
+          }, 100);
+        }
+      };
+
+      window.addEventListener("load", () => {
+        setTimeout(hideLoader, 5000);
+      });
+
+      // Fallback if window load already fired
+      if (document.readyState === "complete") {
+        setTimeout(hideLoader, 5000);
+      }
 
       // Fetch live stats from backend
       async function fetchLiveStats() {
@@ -557,7 +568,7 @@ const Intro = () => {
   }, []);
 
   return (
-    <div className="intro-container">
+    <div className="intro-container dark">
       <div className="circuit-bg"></div>
 
       <div id="loader" className="loader-overlay">
